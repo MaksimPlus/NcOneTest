@@ -1,0 +1,56 @@
+﻿@model NcOne.Models.Employee
+@{
+    ViewBag.Title = "Добавление сотрудника";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="~/style.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        var name = ["Maxim", "Ivan", "Michail", "Egor", "Igor", "Oksana", "Elizabeth",
+            "Andrey", "Alexader", "Alexei", "Alex"];
+
+        $('#acInput').autocomplete({
+            source: name
+        })
+    });
+</script>
+<form method="post">
+    <fieldset>
+        <legend>Сотрудник</legend>
+        <div class="ui-widget">
+            <label asp-for="Name" for="acInput">Имя</label>
+            <input id="acInput" asp-for="Name" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Surname">Фамилия</label>
+            <input type="text" asp-for="Surname" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Age">Возраст</label>
+            <input type="text" asp-for="Age" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Gender">Пол</label>
+            <input type="text" asp-for="Gender" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="DepartamentId">Отдел</label>
+            <select asp-for="DepartamentId" asp-items="ViewBag.Departaments"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ProgrammingLanguageId">Язык программирования</label>
+            <select asp-for="ProgrammingLanguageId" asp-items="ViewBag.programminglanguage"></select>
+        </div>
+        <p>
+            <input type="submit" value="Добавить сотрудника" />
+        </p>
+    </fieldset>
+    <div>
+        <a asp-action="Index">На главную</a>
+    </div>
+</form>
+
+

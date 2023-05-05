@@ -1,0 +1,42 @@
+﻿@model NcOne.Models.Employee
+@{
+    ViewBag.Title = "Редактирование сотрудника";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<h2>Редактирование сотрудника</h2>
+<form method="post" class="form">
+    <fieldset>
+        <legend>Сотрудник</legend>
+        <div>
+            <label asp-for="Name">Имя</label>
+            <input type="text" asp-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Surname">Фамилия</label>
+            <input type="text" asp-for="Surname" />
+        </div>
+        <div>
+            <label asp-for="Age">Возраст</label>
+            <input type="text" asp-for="Age" />
+        </div>
+        <div>
+            <label asp-for="Gender">Пол</label>
+            <input type="text" asp-for="Gender" />
+        </div>
+        <div>
+            <label asp-for="DepartamentId">Отдел</label>
+            <select asp-for="DepartamentId" asp-items="ViewBag.Departaments"></select>
+        </div>
+        <div>
+            <label asp-for="ProgrammingLanguageId">Язык программирования</label>
+            <select asp-for="ProgrammingLanguageId" asp-items="ViewBag.programminglanguage"></select>
+        </div>
+        <p>
+            <input type="submit" value="Сохранить изменения" />
+        </p>
+    </fieldset>
+    <div>
+        <a asp-action="Index">На главную</a>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NcOne.Models.ProgrammingLanguage>
+@{
+    ViewBag.Title = "Все языки программирования";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<h2>Все языки программирования</h2>
+<p>
+    <a asp-action="RedirectToEmployee">Главная</a>
+    <a asp-action="RedirectToDepartament">Отделы</a>
+    <a asp-action="Create">Добавить язык программирования</a>
+</p>
+<table class=table>
+    <tr>
+        <th>Имя</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+
